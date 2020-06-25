@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  my_redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ~/Downloads/dump_redis.rdb:/data/dump.rdb
+
+  my_mongo:
+    image: mongo:3.6.18
+    ports:
+      - 27017:27017
+
+  my_node:
+    image: my-node-application:1.0
+    ports:
+      - 4000:3333
+    depends_on:
+      - 'redis_batata'
+      - 'mongo_batata'
