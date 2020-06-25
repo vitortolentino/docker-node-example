@@ -18,5 +18,5 @@ services:
     ports:
       - 4000:3333
     depends_on:
-      - 'redis_batata'
-      - 'mongo_batata'
+      - 'my_redis'
+      - 'my_mongo'
